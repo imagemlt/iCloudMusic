@@ -19,7 +19,7 @@ Function.prototype.apply=function(...args){
 }
 ```
 
-执行这个函数后，尝试执行request.get一个url，可以在console中找到`process`.因此便可以将我们的覆盖脚本改写为：
+进入view的devtool,执行这个函数后，尝试执行request.get一个url，可以在console中找到`process`.因此便可以将我们的覆盖脚本改写为：
 ```js
 Function.prototype.apply2=Function.prototype.apply;
 Function.prototype.apply=function(...args){
