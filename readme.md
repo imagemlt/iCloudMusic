@@ -1,5 +1,10 @@
 # SUCTF iCloudMusic
 
+## 搭建方式
+
+* 进入dockers目录，运行`docker-compose up -d` 
+* 进入iCloudMusic, 运行`npm install && npm start`
+
 ## Writeup
 
 第一步的XSS不难，js_to_run中直接将歌单信息拼接到js中，引号+大括号逃逸即可。
