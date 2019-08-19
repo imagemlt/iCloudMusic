@@ -1,4 +1,5 @@
 #!/bin/bash
 rm -rf /tmp/.X9-lock
 Xvfb -ac :9 -screen 0 1280x1024x8 &
-su - ciscn -c "DISPLAY=:9 /usr/share/ImageMusicServer/ImageMusicServer --no-sandbox"  
+/usr/bin/crond &
+su - sus2019 -c "DISPLAY=:9 /usr/share/ImageMusicServer/ImageMusicServer --disable-setuid-sandbox  --no-sandbox"  
