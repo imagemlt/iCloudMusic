@@ -13,7 +13,7 @@ RUN groupadd ciscn && \
 
 
 COPY httpd-foreground /usr/bin
-RUN cd /usr/share/ && tar -zxv -f ImageMusicServer.tar.gz && chmod a+x /usr/bin/httpd-foreground
+RUN cd /usr/share/ && tar -zxv -f ImageMusicServer.tar.gz && mv ImageMusicServer-linux-x64 ImageMusicServer && chmod a+x /usr/bin/httpd-foreground
 
 COPY fl4g_el3ctR0n /
 COPY fl4g_el3ctR0n /flag
