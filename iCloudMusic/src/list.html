@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>歌单</title>
+    <style>
+        * {
+            scroll:no;
+            overflow-x:hidden
+        }
+        body,html{
+            width:100%;
+            text-align: center;
+        }
+        span{
+            display: block;
+            color:white;
+        }
+        img{
+            width:60%;
+            height:60%;
+            margin:5px auto;
+            cursor:pointer;
+        }
+        a{
+            color:antiquewhite;
+            text-decoration:underline;
+            cursor: pointer;
+        }
+        input{
+            display:block;
+            height:15px;
+            line-height:15px;
+            font-size:12px;
+            border:0.5px solid lightslategrey;
+            outline:none;
+            margin:5px auto;
+            background:transparent;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img id="avator"/>
+    <span id="avName"></span>
+    <span id="avDesp"></span>
+    <p>
+        <span id="code"></span>
+        <input id="captcha"/>
+        <a id="share">好听的话，就分享给管理员吧！</a>
+    </p>
+</div>
+<script>
+    Object.freeze(document.location)
+    share.addEventListener('click',(e)=>{
+        if(window.pid!=undefined) {
+            request.post({
+                url:"http://127.0.0.1:5000/",
+                form:{
+                    music:JSON.stringify(music_info),
+                    id:window.pid,
+                    code:captcha.value
+                },
+                headers:{
+                    Cookie:window.session,
+                }
+            }, (error, response, body) => {
+                if (!error && response.statusCode == 200) {
+                    console.log(body);
+                    res=JSON.parse(body);
+                    if(res.success){
+                        share.innerText="已分享";
+                        setTimeout(()=>{
+                            share.innerText="好听的话，就分享给管理员吧！";
+                        },1000)
+                    }
+                    else{
+                        share.innerText="分享失败，验证码错误"
+                    }
+                    refreshCode();
+                }
+                else{
+                    console.log(error,response)
+                }
+            })
+        }
+    })
+</script>
+</body>
+</html>

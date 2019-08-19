@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    html,body{
+      width:100%;
+      height:100%;
+      padding:0;
+      margin:0;
+      -webkit-app-region: drag;
+    }
+    * {
+      scroll:no;
+      overflow-x:hidden
+    }
+    body{
+      background: url('pics/background.jpg');
+    }
+    #music {
+      width: 450px;
+      height: 100%;
+      margin: 0px auto;
+      position: relative;
+
+      background-size: cover;
+      text-align: center;
+      visibility: hidden;
+    }
+    #container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 450px;
+      height: 500px;
+      text-align: center;
+      font-family:'微软雅黑';
+      color:white;
+      padding-top:20px;
+    }
+    .avator{
+      width:200px;
+      height:200px;
+      border-radius: 50%;
+      margin:30px auto;
+    }
+    .lrc{
+      position:absolute;
+      bottom:0px;
+
+      width:100%;
+    }
+    button{
+      background:transparent;
+      border:0;
+      -webkit-tap-highlight-color:transparent;
+      margin-top: 20px;
+      margin-right:5px;
+      outline:none;
+    }
+    .button{
+      width:25px;
+      height:25px;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .chooseBoard{
+      position:absolute;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      width:100%;
+      height:100%;
+    }
+
+    .searchbox{
+      display:flex;
+      flex-direction:row;
+      justify-content: center;
+      margin:0 auto;
+      width:100%;
+      line-height:25px;
+      font-size:20px;
+    }
+    .rel{
+      display:inline-block;
+    }
+    input{
+      display:flex;
+      height:25px;
+      line-height:25px;
+      font-size:18px;
+      border:0.5px solid lightslategrey;
+      outline:none;
+      background:transparent;
+      color:white;
+    }
+    .search{
+      display:flex;
+      color:white;
+      height:25px;
+      line-height:25px;
+      margin:0;
+    }
+    .searchimg{
+      height:25px;
+      width:25px;
+    }
+    .searchRes{
+      display:flex;
+      flex-wrap:wrap;
+      width:80%;
+      min-height:200px;
+      max-height:600px;
+      margin-top:15px;
+      overflow-y:scroll;
+    }
+
+
+    *::-webkit-scrollbar {
+      display: none;
+    }
+
+    webview{
+      visibility: hidden;
+    }
+    webview::-webkit-scrollbar {
+      display: none;
+    }
+    .searchbox::-webkit-scrollbar{
+      display:none;
+    }
+    .searchItem{
+      display:inline-block;
+      width: 25%;
+      text-align: center;
+      margin: 5px 10px;
+      padding:5px;
+      font-size:15px;
+      height:fit-content;
+    }
+
+    .resImg{
+      width:100%;
+      height:initial;
+    }
+    .resName{
+      display:inline-block;
+      margin: 0 auto;
+      padding:0 auto;
+      text-align:center;
+      color:white;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+<div id="chooseBoard" class="chooseBoard">
+  <div class="searchbox"><input type="text" placeholder="输入歌单id" id="input"/><button class="search" id="search"><img src="pics/search.png" class="searchimg"/></button></div>
+  <div class="searchRes" id="searchRes">
+    <webview src="http://record.imagemlt.xyz:1080/list.html" preload="pr.js" id="view"></webview>
+  </div>
+</div>
+
+<div id="music">
+  <div id="container">
+    <h3 id="musicName">加载中。。。</h3>
+    <img class="avator" src="pics/loading.gif" id="avator"/>
+    <audio src="" controls id="audio"></audio>
+    <div class="btn">
+      <button id="play"><img src="pics/stop.png" class="button"/></button>
+      <button id="pause"><img src="pics/play.png" class="button"/></button>
+      <button id="prev"><img src="pics/prev.png" class="button"/></button>
+      <button id="next"><img src="pics/next.png" class="button"/></button>
+      <button id="refresh"><img src="pics/refresh.png" class="button"/></button>
+    </div>
+    <div class="lrc" id="lrc">
+      歌词
+    </div>
+  </div>
+</div>
+<script>
+require("./main.js");
+</script>
+</body>
+
+</html>
