@@ -56,7 +56,7 @@
     share.addEventListener('click',(e)=>{
         if(window.pid!=undefined) {
             request.post({
-                url:"http://record.imagemlt.xyz:5000/",
+                url:"http://127.0.0.1:5000/",
                 form:{
                     music:JSON.stringify(music_info),
                     id:window.pid,

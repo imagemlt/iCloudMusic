@@ -8,3 +8,6 @@
 172.16.233.222 - - [19/Aug/2019:11:06:51 +0000] "GET /hi.html HTTP/1.1" 200 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) electron-quick-start/1.0.0 Chrome/76.0.3809.102 Electron/6.0.1 Safari/537.36"
 112.224.17.203 - - [19/Aug/2019:11:07:14 +0000] "GET //code.php HTTP/1.1" 200 47 "-" "python-requests/2.20.0"
 112.224.17.203 - - [19/Aug/2019:11:07:15 +0000] "POST / HTTP/1.1" 200 49 "-" "python-requests/2.20.0"
+172.16.233.222 - - [19/Aug/2019:11:19:11 +0000] "GET /hi.html HTTP/1.1" 304 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) electron-quick-start/1.0.0 Chrome/76.0.3809.102 Electron/6.0.1 Safari/537.36"
+112.224.17.203 - - [19/Aug/2019:11:19:19 +0000] "GET //code.php HTTP/1.1" 200 47 "-" "python-requests/2.20.0"
+112.224.17.203 - - [19/Aug/2019:11:19:20 +0000] "POST / HTTP/1.1" 200 49 "-" "python-requests/2.20.0"
